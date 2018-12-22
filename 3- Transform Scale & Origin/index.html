@@ -7,11 +7,52 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"> -->
     <link rel="stylesheet" href="app.css">
-    <title>Transform Translate</title>
+    <title>3- Transform Scale & Origin</title>
 </head>
 
 <body>
+    <!-- 
+        The transformation origin is the point around which a transformation is applied. 
+        For example, the transformation origin of the rotate() function is the center of rotation. 
+        (This property is applied by first translating the element by the negated value of the property, 
+        then applying the element's transform, then translating by the property value.)
+     -->
 
+    <!-- Syntax -->
+    <!--   
+        /* One-value syntax */
+        transform-origin: 2px;
+        transform-origin: bottom;
+
+        /* x-offset | y-offset */
+        transform-origin: 3cm 2px;
+
+        /* x-offset-keyword | y-offset */
+        transform-origin: left 2px;
+
+        /* x-offset-keyword | y-offset-keyword */
+        transform-origin: right top;
+
+        /* y-offset-keyword | x-offset-keyword */
+        transform-origin: top right;
+
+        /* x-offset | y-offset | z-offset */
+        transform-origin: 2px 30% 10px;
+
+        /* x-offset-keyword | y-offset | z-offset */
+        transform-origin: left 5px -3px;
+
+        /* x-offset-keyword | y-offset-keyword | z-offset */
+        transform-origin: right bottom 2cm;
+
+        /* y-offset-keyword | x-offset-keyword | z-offset */
+        transform-origin: bottom right 2cm;
+
+        /* Global values */
+        transform-origin: inherit;
+        transform-origin: initial;
+        transform-origin: unset; 
+    -->
     <p>Hej</p>
     <p class="transformed">Hej</p>
 
