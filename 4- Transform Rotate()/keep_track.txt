@@ -1,0 +1,4 @@
+1- https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+2- https://codepen.io/Colt/pen/GEbPQY
+3- https://developer.mozilla.org/en-US/docs/Web/CSS/angle
+4- https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
