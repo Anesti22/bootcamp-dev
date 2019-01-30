@@ -1,0 +1,5 @@
+1- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+2- https://codepen.io/Colt/pen/MoMNEw
+3- https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration
+4- https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property
+5- https://matthewlein.com/ceaser/
