@@ -1,0 +1,8 @@
+1- https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/
+
+2- What should be transitioned (Or what performs best?)
+
+transform: translate();
+transform: scale();
+transform: rotate();
+opacity
