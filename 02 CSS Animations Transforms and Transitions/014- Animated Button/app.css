@@ -34,5 +34,5 @@ h1 {
 
 .btn:active {
     box-shadow: 0 0 #efa424;
-    top: 6px;
+    /* top: 6px; */
 }

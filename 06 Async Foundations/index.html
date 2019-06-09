@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Callback Functions</title>
+</head>
+<body>
+<p>What is a callback function?</p>
+<em>A Callback Function is a function tha is passed to another function as a parameter, then invoked by that other function</em>
+
+
+<p>foreach Function</p>
+<ul>
+    <h5>Opjectives</h5>
+    <li>Describe and use a callback Function</li>
+    <li>Implement the foreach function</li>
+</ul>
+
+<h3>Print Array values Doubled</h3>
+
+<script>
+
+// for loop
+// ======================================
+
+
+// var arr = [1,2,3,4,5,6];
+
+// function double(arr) {
+//     for(i = 0; i < arr.length; i++) {
+//         console.table(arr[i] * 2)
+//     }
+// }
+
+// double(arr);
+
+
+
+// forEach example with all the callback parameters
+// ======================================
+
+// function forEach(arr, callback) {
+
+//     for(var i = 0; i < arr.length; i++){
+//         callback(arr[i], i, arr);
+//     }
+// }
+
+// var strings = ["My", "forEach", "example"]
+
+// var results = " ";
+
+// forEach(strings, function(str, index, array){
+//     if(array.length - 1 !== index) {
+//         result += str + " ";
+//     } else {
+//         result += str  + "!!!";
+//     }
+// });
+
+// function forEach(arr, callback) {
+//     for(i = 0; i < (arr.length); i++) {
+//         callback(arr[i], i, arr);
+//     }
+// }
+
+
+
+
+
+
+// =================================================//
+// forEach example with all the callback parameters //
+// =================================================//
+
+// ================== Objective ====================//
+//  * Describe and use the findIndex function
+//  * Implement the findIndex on your own
+
+// Definition of findIndex
+// Returns the index of the first element in the array for witch the callback
+// returns a truthy value. -1 is returned if the callback never returns a truthy value.
+
+
+// #1
+// var arr = [3,4,6,2,1];
+// findIndex(arr, function(num, index, array){
+//     return num === 6;
+// });
+
+
+//#2 Find first even number
+// var arr = [5,11,13,8,6,7];
+// findIndex(arr, function(num, index, array){
+//     return num % 2 === 0;
+// });
+
+
+// #3 Could not find
+// var Langs = ["Java","C++","Python","Ruby"];
+//     findIndex(langs, function(lang, index, array){
+//     return langs === "JavaScript";
+// });
+
+// #3 Bad callbacks
+// var Langs = ["Java","C++","Python","JavaScript"];
+//     findIndex(langs, function(lang, index, array){
+//     langs === "JavaScript"; // return is missing, it will returen -1
+// });
+
+// #4 Example
+// function findIndex(arr, callback) {
+//     for(var i = 0; i < (arr.length); i++) {
+//         if(callback(arr[i], i, arr)) {
+//             return i;
+//         }
+//     }
+
+//     return -1;
+// }
+
+
+
+
+// =================================================//
+// The Stack and the Heap
+// =================================================//
+
+// ================== Objective ====================//
+//  * Describe what the stack is
+//  * Describe a stack frame
+//  * Describe a heap
+
+
+// WHat is the Stack?
+// * An ordered data structure
+// * Keeps track of function invocations
+
+//Part of the JavaScript Routine(you dont access it directly)
+// Every time you invoce a function the stack keep track of that function
+
+// setTimeout
+// function callback() {
+//     console.log("callback function");
+// }
+
+// var delay = 1000; // Delay is in ms
+// setTimeout(callback, delay);
+
+
+// Anonymous  function
+// setTimeout(function(){
+//     console.log("Runs is approx. 2000ms");
+// }, 2000);
+
+
+// SetTimeout
+// var timerId = setTimeout(function(){
+//     console.log("Runs is approx. 30 s");
+// }, 30000);
+
+
+// setTimeout(function(){
+//     console.log("Cancel the first setTimeout", timerId);
+//     clearTimeout(timerId);
+// }, 2000);
+
+// setInterval
+
+// function callback(){
+//     console.log("Callback is called continuosly")
+// }
+
+
+// var repeat = 3000;
+
+// setTimeout(callback, repeat);
+
+
+// var num = 0;
+// setInterval(function(){
+//     num++;
+//     console.log("num:", num);
+// }, 1000);
+
+
+
+// Canceling setInterval
+// var num = 0;
+// var intevalId  =  setInterval(function() {
+//     num++;
+//     console.log("num:", num)
+
+//     if( num=== 3) {
+//         clearInterval(intevalId);
+//     }
+// }, 2000);
+
+
+// function countdown(seconds) {
+//     var intevalId = setInterval(function(){
+//         seconds--;
+//         if(seconds > 0) {
+//             console.log("Timer: ", seconds);
+//         }else{
+//             console.log("Ring Ring Ring");
+//             clearInterval(intevalId);
+//         }
+//     }, 1000);
+// }
+
+
+// =================================================//
+// Event loop and the queue
+// =================================================//
+
+// ================== Objective ====================//
+//  * Definne the entnt loop and the queue
+//  * Describe define how the event loop and the queue work with the stack
+//  * Define JavaScript as a single threaded language
+
+// What is The Queue ?
+// An order list of functions waiting to be placed on the stack
+
+// EXAMPLE #1
+
+// setTimeout(function() {
+//     console.log("Hello World");
+// }, 0);
+
+// EXAMPLE #2
+
+// function square(n) {
+//     return n * n;
+// }
+
+// setTimeout(function() {
+//     console.log("Callback is placed", "on the queue")
+// }, 0);
+
+// console.log(square(2));
+
+
+// =================================================//
+// PROMISES
+// =================================================//
+
+// ================== OBJECTIVES ====================//
+//  * Definne a promise
+//  * Add a .then callback to a promise
+//  * Add a .catch callback to a promise
+//  * Wrap a setTimeout call in a promise
+
+// What is a promise?
+// A promise is an object that represents a task that will be completed in the future
+
+
+// EXAMPLE #1
+// var p1 = new Promise(function(resolve, reject){
+//     resolve([1,2,3,4]);
+// });
+
+
+// p1.then(function(arr) {
+//     console.log("Promise p1 resolved with data:", arr);
+// });
+
+
+// EXAMPLE #2
+// var p1 = new Promise(function(resolve, reject){
+//     reject("ERROR");
+// });
+
+
+// p1.then(function(data) {
+//     console.log("Promise p1 resolved with data:", data);
+// }).catch(function(data){
+//     console.log("Promise p1 was rejected with data:", data);
+// });
+
+
+// EXAMPLE #3
+// Promise with randomly occurring errors
+// var p1 = new Promise(function(resolve, reject){
+//     var num = Math.random();
+
+//     if(num < 0.5){
+//         resolve(num);
+//     }else{
+//         reject(num);
+//     }
+// });
+
+// p1.then(function(result){
+//     console.log("Success: ", result);
+// }).catch(function(error){
+//     console.log("Error: ", error);
+// });
+
+
+
+// EXAMPLE #4
+// Wrap setTimeout with Promise
+// var promise = new Promise(function(resolve, reject){
+//     setTimeout(function(){
+//         var randomInt = Math.floor(Math.random() * 10 );
+
+//         resolve(randomInt);
+//     }, 4000);
+// });
+
+// promise.then(function(data){
+//     console.log("Random int passed to resolve:", data);
+// });
+
+
+// =================================================//
+// PROMISES CHAINING
+// =================================================//
+
+// ================== OBJECTIVES ====================//
+//  * Describe the disavantages of using nested callbacks
+//  * Return a promise form a .then callback function
+//  * Use a promise to make asynchronous code seem sequental
+
+// var conunter = 0;
+// setTimeout(function(){
+//     conunter++;
+//     console.log("Counter: ", conunter);
+
+//     setTimeout(function(){
+//         conunter++;
+//         console.log("Counter: ", conunter);
+
+//         setTimeout(function(){
+//             conunter++;
+//             console.log("Counter: ", conunter);
+
+//         }, 3000);
+//     }, 2000);
+// }, 1000);
+
+
+// Returning a Promise, Promise chaining
+// var promise = new Promise(function(resolve, reject){
+//     setTimeout(function(){
+//         var randomInt = Math.floor(Math.random() * 10 );
+
+//         resolve(randomInt);
+//     }, 500);
+// });
+
+// promise.then(function(data){
+//     console.log("Random int passed to resolve:", data);
+
+//     return new Promise(function(resolve, reject){
+//         setTimeout(function(){
+//             resolve(Math.floor(Math.random() * 10 ));
+//         }, 3000);
+//     });
+//     }).then(function(data){
+//         console.log("Second Random passed to resolve:", data);
+//     });
+
+// EXAMPLE #2
+
+var promise = new Promise(function(resolve, reject){
+    resolve(5);
+});
+
+promise.then(function(data){
+    return data * 2;
+}).then(function(data) {
+    return data  + 20;
+}).then(function(data) {
+    console.log(data);
+});
+
+
+// EXAMPLE #3
+// See the img/Promises chaining.png
+
+
+
+
+</script>
+</body>
+</html>
